@@ -47,21 +47,26 @@ newBookBtn.addEventListener('click', () => {
 
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
-    const tableBody = document.querySelector('.table-body');
+    if ((document.getElementById('add-title').value !== '' || document.getElementById('add-author').value !== '') || document.getElementById('add-pages').value !== '') {
 
-    const formRow = document.createElement('tr');
+        const tableBody = document.querySelector('.table-body');
 
-    const bookTitle = document.createElement('td');
-    bookTitle.textContent = document.getElementById('add-title').value;
-    formRow.appendChild(bookTitle);
+        const formRow = document.createElement('tr');
 
-    const bookAuthor = document.createElement('td');
-    bookAuthor.textContent = document.getElementById('add-author').value;
-    formRow.appendChild(bookAuthor);
+        const bookTitle = document.createElement('td');
+        bookTitle.textContent = document.getElementById('add-title').value;
+        formRow.appendChild(bookTitle);
 
-    const bookPages = document.createElement('td');
-    bookPages.textContent = document.getElementById('add-pages').value;
-    formRow.appendChild(bookPages);
+        const bookAuthor = document.createElement('td');
+        bookAuthor.textContent = document.getElementById('add-author').value;
+        formRow.appendChild(bookAuthor);
 
-    tableBody.appendChild(formRow);
+        const bookPages = document.createElement('td');
+        bookPages.textContent = document.getElementById('add-pages').value;
+        formRow.appendChild(bookPages);
+
+        const bookRead = document.createElement('td');
+
+        tableBody.appendChild(formRow);
+    };
 });
