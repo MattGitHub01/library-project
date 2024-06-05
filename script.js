@@ -40,9 +40,7 @@ const pages = document.createElement('p');
 pages.textContent = `Pages: ${library[0].pages}`;
 card.appendChild(pages);
 
-const button = document.createElement('button');
-button.classList = 'new-book';
-button.textContent = 'New Book';
+const button = document.querySelector('.add-book');
 button.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
