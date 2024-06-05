@@ -5,3 +5,36 @@
     font-weight: normal;
     font-style: normal;
 }
+
+* {
+    font-family: 'railway';
+}
+
+.logo {
+    display: flex;
+}
+
+.logo-img {
+    margin: 1rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.card {
+    width: 300px;
+    height: 130px;
+    padding-left: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: bisque;
+    text-align: left;
+}
+
+.add-book-form ul {
+    list-style-type: none;
+}
+
+.add-book-form li {
+    justify-self: left;
+    margin: 1rem;
+}

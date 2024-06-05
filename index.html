@@ -8,6 +8,32 @@
         <script src="./script.js" defer></script>
     </head>
     <body>
+        <div class="logo">
+            <img class="logo-img" src="./icons/logo.svg" alt="Library App Logo">
+            <h1 class="logo-text">My Library</h1>
+        </div>
+        <div class="container"></div>
 
+        <!-- Add New Book Form-->
+        <dialog class="add-book-form">
+            <form action="" method="dialog" id="add-form">
+                <ul>
+                    <li>
+                        <label for="add-title">Title: </label>
+                        <input type="text" name="add-title" id="add-title">
+                    </li>
+                    <li>
+                        <label for="add-author">Author: </label>
+                        <input type="text" name="add-author" id="add-author">
+                    </li>
+                    <li>
+                        <label for="add-pages">Pages: </label>
+                        <input type="text" name="add-pages" id="add-pages">
+                    </li>
+                </ul>
+                <button id="submit" type="submit">Add Book</button>
+                <button id="cancel" type="reset">Cancel</button>
+            </form>
+        </dialog>
     </body>
 </html>
