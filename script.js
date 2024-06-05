@@ -18,10 +18,7 @@ function addNewBook() {
     library.push(testBookOne);
 };
 
-addNewBook()
-
 const container = document.querySelector('.container');
-
 
 /*
 const card = document.createElement('div');
@@ -40,11 +37,11 @@ const pages = document.createElement('p');
 pages.textContent = `Pages: ${library[0].pages}`;
 card.appendChild(pages);
 
-const button = document.querySelector('.add-book');
+*/
+
+const button = document.querySelector('.add-btn');
 button.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
-container.appendChild(button);
 
-*/

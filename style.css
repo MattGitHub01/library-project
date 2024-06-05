@@ -94,11 +94,40 @@ tr, th, td {
     grid-row: 2 / 3;
 }
 
+.add-book-form {
+    background-color: rgb(251, 244, 233);
+    border-radius: 10px;
+}
+
 .add-book-form ul {
     list-style-type: none;
+    list-style-position: inside;
 }
 
 .add-book-form li {
-    justify-self: left;
-    margin: 1rem;
+    margin-bottom: .5rem;
+}
+
+.add-book-form label {
+    margin-right: 1rem;
+    margin-left: -2rem;
+}
+
+.add-book-form input {
+    border: 2px solid gray;
+    border-radius: 15px;
+    width: 80%;
+}
+
+.add-book-form button {
+    font-size: .8rem;
+    border: none;
+    background-color: rgb(251, 244, 233);
+}
+
+.add-book-form button:hover {
+    font-size: .8rem;
+    color: gray;
+    border: none;
+    background-color: rgb(251, 244, 233);
 }
