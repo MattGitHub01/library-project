@@ -13,18 +13,12 @@
             <h1 class="logo-text">My Library</h1>
             <div class="table">
                 <table>
-                    <tbody>
+                    <tbody class="table-body">
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
                             <th>Pages</th>
                             <th>Read</th>
-                        </tr>
-                        <tr>
-                            <td>Title of Two Titles</td>
-                            <td>Title Dickens</td>
-                            <td>50000</td>
-                            <td>Yes</td>
                         </tr>
                     </tbody>
                 </table>
@@ -50,6 +44,11 @@
                         <li>
                             <label for="add-pages">Pages: </label>
                             <input type="number" name="add-pages" id="add-pages">
+                        </li>
+                        <li class="y-n">
+                            <label class="add-read" for="add-read">Read: </label>
+                            <input type="radio" name="add-read" class="add-read" checked><span>Yes</span></input>
+                            <input type="radio" name="add-read" class="add-read"><span>No</span></input>
                         </li>
                     </ul>
                     <button id="submit" type="submit" class="form-submit">» Add Book «</button>

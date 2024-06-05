@@ -39,9 +39,29 @@ card.appendChild(pages);
 
 */
 
-const button = document.querySelector('.add-btn');
-button.addEventListener('click', () => {
+const newBookBtn = document.querySelector('.add-btn');
+newBookBtn.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
 
+const formSubmitBtn = document.querySelector('.form-submit');
+formSubmitBtn.addEventListener('click', () => {
+    const tableBody = document.querySelector('.table-body');
+
+    const formRow = document.createElement('tr');
+
+    const bookTitle = document.createElement('td');
+    bookTitle.textContent = document.getElementById('add-title').value;
+    formRow.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('td');
+    bookAuthor.textContent = document.getElementById('add-author').value;
+    formRow.appendChild(bookAuthor);
+
+    const bookPages = document.createElement('td');
+    bookPages.textContent = document.getElementById('add-pages').value;
+    formRow.appendChild(bookPages);
+
+    tableBody.appendChild(formRow);
+});

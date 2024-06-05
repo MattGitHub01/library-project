@@ -106,6 +106,22 @@ tr, th, td {
 
 .add-book-form li {
     margin-bottom: .5rem;
+    text-align: left;
+}
+
+.y-n {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+.y-n input {
+    margin: 0;
+}
+
+.y-n span {
+    text-align: center;
+    margin-top: .26rem;
 }
 
 .add-book-form label {
