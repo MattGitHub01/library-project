@@ -1,11 +1,11 @@
+const library = [];
+
 function Book(name, author, pages, id) {
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.id = id;
 };
-
-const library = [];
 
 const testBookOne = {
     name: 'Test',
@@ -15,7 +15,6 @@ const testBookOne = {
 };
 
 function addNewBook() {
-    
     library.push(testBookOne);
 };
 
@@ -23,6 +22,8 @@ addNewBook()
 
 const container = document.querySelector('.container');
 
+
+/*
 const card = document.createElement('div');
 card.classList = 'card';
 container.appendChild(card);
@@ -41,9 +42,11 @@ card.appendChild(pages);
 
 const button = document.createElement('button');
 button.classList = 'new-book';
-button.textContent = 'Add New Book';
+button.textContent = 'New Book';
 button.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
 container.appendChild(button);
+
+*/
