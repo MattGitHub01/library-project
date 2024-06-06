@@ -32,6 +32,9 @@
             <!-- Add New Book Form -->
             <dialog class="add-book-form">
                 <form action="" method="dialog" id="add-form">
+                    <div class="exit-div">
+                        <button class="exit-btn" formnovalidate>X</button>
+                    </div>
                     <ul>
                         <li>
                             <label for="add-title">Title: </label>
@@ -46,8 +49,8 @@
                             <input type="number" name="add-pages" id="add-pages" required>
                         </li>
                     </ul>
-                    <button id="submit" type="submit" class="form-submit">» Add Book «</button>
-                    <button id="cancel" type="reset" class="form-cancel">» Cancel «</button>
+                    <button id="submit" type="submit" class="form-submit" formnovalidate>» Add Book «</button>
+                    <button id="cancel" type="reset" class="form-cancel">» Clear Form «</button>
                 </form>
             </dialog>
         </div>

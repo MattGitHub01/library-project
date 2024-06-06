@@ -107,6 +107,13 @@ th .th-delete {
     text-align: center;
 }
 
+.exit-div {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    font-weight: 900;
+}
+
 .add-book-form {
     background-color: rgb(251, 244, 233);
     border-radius: 10px;

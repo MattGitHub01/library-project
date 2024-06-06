@@ -32,6 +32,16 @@ cancelBtn.addEventListener('click', () => {
 });
 // A second cancelBtn event listener that deletes the entire library array. Saves memory by adding less code to repeated instances of event listeners in added book objects.
 
+
+const exitBtn = document.querySelector('.exit-btn');
+exitBtn.addEventListener('click', () => {
+    // Clears form input areas for next input
+    document.getElementById('add-title').value = '';
+    document.getElementById('add-author').value = '';
+    document.getElementById('add-pages').value = '';
+});
+// Closes form and resets input data without submit button and bypasses required form input tags
+
 const formSubmitBtn = document.querySelector('.form-submit');
 // Below code handles user inputted books and changes book object values stored in library array
 formSubmitBtn.addEventListener('click', () => {
@@ -88,10 +98,8 @@ formSubmitBtn.addEventListener('click', () => {
         bookId =+ 1;
         library.push(newBook);
         newBook.check()
-        // Closes modal form
-        closeMe();
-    };
-    // Clears form input areas for next input
+    }
+    // Clears form input areas for next input before form closes
     document.getElementById('add-title').value = '';
     document.getElementById('add-author').value = '';
     document.getElementById('add-pages').value = '';
