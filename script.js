@@ -2,13 +2,13 @@ const library = [];
 let readValue = false;
 let bookId = 0;
 
-function Book(title, author, pages, id) {
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.id = id;
     this.check = function () {
-        console.table()
+        console.table(this.title, this.author, this.pages);
     }
 };
 
