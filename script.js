@@ -70,3 +70,50 @@ formSubmitBtn.addEventListener('click', () => {
         newBook.check()
     };
 });
+
+const sampleBtn = document.querySelector('.sample-btn');
+sampleBtn.addEventListener('click', () => {
+    const tableBody = document.querySelector('.table-body');
+    const formRow = document.createElement('tr');
+
+    const bookTitle = document.createElement('td');
+    bookTitle.textContent = 'Pet Semetary';
+    formRow.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('td');
+    bookAuthor.textContent = 'Stephen King';
+    formRow.appendChild(bookAuthor);
+
+    const bookPages = document.createElement('td');
+    bookPages.textContent = 395;
+    formRow.appendChild(bookPages);
+
+    const bookRead = document.createElement('td');
+
+    const addRead = document.createElement('input');
+    addRead.setAttribute('type', 'checkbox');
+    addRead.setAttribute('name', 'read-table');
+    bookRead.appendChild(addRead);
+    formRow.appendChild(bookRead);
+
+    const delRow = document.createElement('button');
+    delRow.classList = 'del-row';
+    delRow.textContent = '»Delete«';
+    delRow.addEventListener('click', () => {
+        tableBody.removeChild(formRow);
+        delete library[newBook.id];
+    });
+    formRow.appendChild(delRow);
+
+    cancelBtn.addEventListener('click', () => {
+        tableBody.removeChild(formRow);
+        delete library[newBook.id];
+    });
+
+    tableBody.appendChild(formRow);
+    //Add Book To Library
+    const newBook = new Book('Pet Semetary', 'Stephen King', 395, bookId);
+    bookId =+ 1;
+    library.push(newBook);
+    newBook.check()
+});
