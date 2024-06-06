@@ -26,7 +26,12 @@ tbody {
 
 tr, th, td {
     border: 2px double black;
-    width: 25%;
+    width: 24%;
+    text-align: center;
+}
+
+th .th-delete {
+    width: 24%;
 }
 
 .container {
@@ -111,21 +116,6 @@ tr, th, td {
 
 .add-book-form input {
     text-align: center;
-}
-
-.y-n {
-    display: flex;
-    justify-content: left;
-    flex-direction: row;
-}
-
-.y-n input {
-    margin: 0;
-}
-
-.y-n span {
-    text-align: center;
-    margin-top: .26rem;
 }
 
 .add-book-form label {

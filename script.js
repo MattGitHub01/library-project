@@ -47,9 +47,8 @@ newBookBtn.addEventListener('click', () => {
 
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
-    if ((document.getElementById('add-title').value !== '' || document.getElementById('add-author').value !== '') || document.getElementById('add-pages').value !== '') {
+    if ((document.getElementById('add-title').value !== '' && document.getElementById('add-author').value !== '') && document.getElementById('add-pages').value !== '') {
         const tableBody = document.querySelector('.table-body');
-
         const formRow = document.createElement('tr');
 
         const bookTitle = document.createElement('td');
@@ -65,16 +64,21 @@ formSubmitBtn.addEventListener('click', () => {
         formRow.appendChild(bookPages);
 
         const bookRead = document.createElement('td');
-        let readText = document.querySelectorAll('input[name=add-read]').forEach((e) => {
-            if (e.checked==true) {
-                bookRead.textContent = 'Yes'
-            } else {
-                bookRead.textContent = 'No';
-            };
-        })
-        
+
+        const addRead = document.createElement('input');
+        addRead.setAttribute('type', 'checkbox');
+        addRead.setAttribute('name', 'read-table');
+        bookRead.appendChild(addRead);
         formRow.appendChild(bookRead);
 
+        const delRow = document.createElement('button');
+        delRow.classList = 'del-row';
+        delRow.textContent = 'Delete';
+        delRow.addEventListener('click', () => {
+            tableBody.removeChild(formRow);
+        });
+        formRow.appendChild(delRow);
+
         tableBody.appendChild(formRow);
-    }
+    };
 });
