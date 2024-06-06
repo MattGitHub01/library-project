@@ -10,7 +10,7 @@ function Book(title, author, pages, read, id) {
     this.author = author;
     this.pages = pages;
     this.read = readValue;
-    this.id = id;
+    this.id = bookId;
     this.check = function () {
         console.table(this.title, this.author, this.pages, this.read);
     }
@@ -95,7 +95,7 @@ formSubmitBtn.addEventListener('click', () => {
 
         // Add Book To Library
         const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
-        bookId =+ 1;
+        bookId++;
         library.push(newBook);
         newBook.check()
     }
@@ -157,7 +157,7 @@ sampleBtn.addEventListener('click', () => {
 
     // Add Book To Library
     const newBook = new Book('Pet Semetary', 'Stephen King', 395, bookId);
-    bookId =+ 1;
+    bookId++;
     library.push(newBook);
     newBook.check()
 });
