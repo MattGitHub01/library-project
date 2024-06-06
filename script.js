@@ -1,6 +1,9 @@
 let library = [];
+// Library is a memory array for all entered books 
 let readValue = false;
+// readValue allows the checkbox to update each stored book object's .read property (true/false)
 let bookId = 0;
+// bookId is a property that more easily allows me to track and delete specific book instances without array index causing issues.
 
 function Book(title, author, pages, read, id) {
     this.title = title;
@@ -12,6 +15,7 @@ function Book(title, author, pages, read, id) {
         console.table(this.title, this.author, this.pages, this.read);
     }
 };
+// Object constructor for user inputted book entries
 
 const container = document.querySelector('.container');
 
@@ -20,13 +24,16 @@ newBookBtn.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
+// Brings up the modal form
 
 const cancelBtn = document.querySelector('.reset-btn');
 cancelBtn.addEventListener('click', () => {
     library = [];
-})
+});
+// A second cancelBtn event listener that deletes the entire library array. Saves memory by adding less code to repeated instances of event listeners in added book objects.
 
 const formSubmitBtn = document.querySelector('.form-submit');
+// Below code handles user inputted books and changes book object values stored in library array
 formSubmitBtn.addEventListener('click', () => {
     if ((document.getElementById('add-title').value !== '' && document.getElementById('add-author').value !== '') && document.getElementById('add-pages').value !== '') {
         const tableBody = document.querySelector('.table-body');
@@ -45,10 +52,11 @@ formSubmitBtn.addEventListener('click', () => {
         formRow.appendChild(bookPages);
 
         const bookRead = document.createElement('td');
-
+        // Creates an input field within the previous table data element
         const addRead = document.createElement('input');
         addRead.setAttribute('type', 'checkbox');
         addRead.setAttribute('name', 'read-table');
+        // Changes the read attribute of each book object in the library array
         addRead.addEventListener('change', function() {
             if (this.checked) {
                 newBook.read = true;
@@ -75,15 +83,22 @@ formSubmitBtn.addEventListener('click', () => {
 
         tableBody.appendChild(formRow);
 
-        //Add Book To Library
+        // Add Book To Library
         const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
         bookId =+ 1;
         library.push(newBook);
         newBook.check()
+        // Closes modal form
+        closeMe();
     };
+    // Clears form input areas for next input
+    document.getElementById('add-title').value = '';
+    document.getElementById('add-author').value = '';
+    document.getElementById('add-pages').value = '';
 });
 
 const sampleBtn = document.querySelector('.sample-btn');
+// Below creates sample data that mimics the user inputted data above 
 sampleBtn.addEventListener('click', () => {
     const tableBody = document.querySelector('.table-body');
     const formRow = document.createElement('tr');
@@ -101,10 +116,11 @@ sampleBtn.addEventListener('click', () => {
     formRow.appendChild(bookPages);
 
     const bookRead = document.createElement('td');
-
+    // Creates an input field within the previous table data element
     const addRead = document.createElement('input');
     addRead.setAttribute('type', 'checkbox');
     addRead.setAttribute('name', 'read-table');
+    // Changes the read attribute of each book object in the library array
     addRead.addEventListener('change', function() {
         if (this.checked) {
             newBook.read = true;
@@ -131,7 +147,7 @@ sampleBtn.addEventListener('click', () => {
 
     tableBody.appendChild(formRow);
 
-    //Add Book To Library
+    // Add Book To Library
     const newBook = new Book('Pet Semetary', 'Stephen King', 395, bookId);
     bookId =+ 1;
     library.push(newBook);
