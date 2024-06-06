@@ -35,20 +35,19 @@
                     <ul>
                         <li>
                             <label for="add-title">Title: </label>
-                            <input type="text" name="add-title" id="add-title">
+                            <input type="text" name="add-title" id="add-title" required>
                         </li>
                         <li>
                             <label for="add-author">Author: </label>
-                            <input type="text" name="add-author" id="add-author">
+                            <input type="text" name="add-author" id="add-author" required>
                         </li>
                         <li>
                             <label for="add-pages">Pages: </label>
-                            <input type="number" name="add-pages" id="add-pages">
+                            <input type="number" name="add-pages" id="add-pages" required>
                         </li>
                         <li class="y-n">
                             <label class="add-read" for="add-read">Read: </label>
-                            <input type="radio" name="add-read" class="add-read" checked><span>Yes</span></input>
-                            <input type="radio" name="add-read" class="add-read"><span>No</span></input>
+                            <input type="checkbox" name="add-read" value="Yes"><span></span></input>
                         </li>
                     </ul>
                     <button id="submit" type="submit" class="form-submit">» Add Book «</button>

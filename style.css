@@ -109,6 +109,10 @@ tr, th, td {
     text-align: left;
 }
 
+.add-book-form input {
+    text-align: center;
+}
+
 .y-n {
     display: flex;
     justify-content: left;

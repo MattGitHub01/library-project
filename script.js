@@ -48,7 +48,6 @@ newBookBtn.addEventListener('click', () => {
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
     if ((document.getElementById('add-title').value !== '' || document.getElementById('add-author').value !== '') || document.getElementById('add-pages').value !== '') {
-
         const tableBody = document.querySelector('.table-body');
 
         const formRow = document.createElement('tr');
@@ -66,7 +65,16 @@ formSubmitBtn.addEventListener('click', () => {
         formRow.appendChild(bookPages);
 
         const bookRead = document.createElement('td');
+        let readText = document.querySelectorAll('input[name=add-read]').forEach((e) => {
+            if (e.checked==true) {
+                bookRead.textContent = 'Yes'
+            } else {
+                bookRead.textContent = 'No';
+            };
+        })
+        
+        formRow.appendChild(bookRead);
 
         tableBody.appendChild(formRow);
-    };
+    }
 });
