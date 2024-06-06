@@ -1,4 +1,6 @@
 const library = [];
+let readValue = false;
+let bookId = 0;
 
 function Book(title, author, pages, id) {
     this.title = title;
@@ -18,7 +20,7 @@ newBookBtn.addEventListener('click', () => {
     newBookForm.showModal();
 });
 
-let bookId = 0;
+const cancelBtn = document.querySelector('.reset-btn');
 
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
@@ -55,10 +57,16 @@ formSubmitBtn.addEventListener('click', () => {
         });
         formRow.appendChild(delRow);
 
+        cancelBtn.addEventListener('click', () => {
+            tableBody.removeChild(formRow);
+            delete library[newBook.id];
+        });
+
         tableBody.appendChild(formRow);
         //Add Book To Library
         const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
         bookId =+ 1;
         library.push(newBook);
+        newBook.check()
     };
 });
