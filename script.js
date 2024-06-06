@@ -1,4 +1,4 @@
-const library = [];
+let library = [];
 let readValue = false;
 let bookId = 0;
 
@@ -6,9 +6,10 @@ function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = readValue;
     this.id = id;
     this.check = function () {
-        console.table(this.title, this.author, this.pages);
+        console.table(this.title, this.author, this.pages, this.read);
     }
 };
 
@@ -21,6 +22,9 @@ newBookBtn.addEventListener('click', () => {
 });
 
 const cancelBtn = document.querySelector('.reset-btn');
+cancelBtn.addEventListener('click', () => {
+    library = [];
+})
 
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
@@ -45,6 +49,13 @@ formSubmitBtn.addEventListener('click', () => {
         const addRead = document.createElement('input');
         addRead.setAttribute('type', 'checkbox');
         addRead.setAttribute('name', 'read-table');
+        addRead.addEventListener('change', function() {
+            if (this.checked) {
+                newBook.read = true;
+            } else if (!this.checked) {
+                newBook.read = false;
+            }
+        });
         bookRead.appendChild(addRead);
         formRow.appendChild(bookRead);
 
@@ -63,6 +74,7 @@ formSubmitBtn.addEventListener('click', () => {
         });
 
         tableBody.appendChild(formRow);
+
         //Add Book To Library
         const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
         bookId =+ 1;
@@ -93,6 +105,13 @@ sampleBtn.addEventListener('click', () => {
     const addRead = document.createElement('input');
     addRead.setAttribute('type', 'checkbox');
     addRead.setAttribute('name', 'read-table');
+    addRead.addEventListener('change', function() {
+        if (this.checked) {
+            newBook.read = true;
+        } else if (!this.checked) {
+            newBook.read = false;
+        }
+    });
     bookRead.appendChild(addRead);
     formRow.appendChild(bookRead);
 
@@ -111,6 +130,7 @@ sampleBtn.addEventListener('click', () => {
     });
 
     tableBody.appendChild(formRow);
+
     //Add Book To Library
     const newBook = new Book('Pet Semetary', 'Stephen King', 395, bookId);
     bookId =+ 1;
