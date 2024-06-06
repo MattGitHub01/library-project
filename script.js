@@ -1,49 +1,24 @@
 const library = [];
 
-function Book(name, author, pages, id) {
-    this.name = name;
+function Book(title, author, pages, id) {
+    this.title = title;
     this.author = author;
     this.pages = pages;
     this.id = id;
-};
-
-const testBookOne = {
-    name: 'Test',
-    author: 'Dave Dave',
-    pages: 100,
-    id: 1
-};
-
-function addNewBook() {
-    library.push(testBookOne);
+    this.check = function () {
+        console.table()
+    }
 };
 
 const container = document.querySelector('.container');
-
-/*
-const card = document.createElement('div');
-card.classList = 'card';
-container.appendChild(card);
-
-const title = document.createElement('p');
-title.textContent = `Name: ${library[0].name}\n`;
-card.appendChild(title);
-
-const author = document.createElement('p');
-author.textContent = `Author: ${library[0].author}\n`;
-card.appendChild(author);
-
-const pages = document.createElement('p');
-pages.textContent = `Pages: ${library[0].pages}`;
-card.appendChild(pages);
-
-*/
 
 const newBookBtn = document.querySelector('.add-btn');
 newBookBtn.addEventListener('click', () => {
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
+
+let bookId = 0;
 
 const formSubmitBtn = document.querySelector('.form-submit');
 formSubmitBtn.addEventListener('click', () => {
@@ -73,12 +48,17 @@ formSubmitBtn.addEventListener('click', () => {
 
         const delRow = document.createElement('button');
         delRow.classList = 'del-row';
-        delRow.textContent = 'Delete';
+        delRow.textContent = '»Delete«';
         delRow.addEventListener('click', () => {
             tableBody.removeChild(formRow);
+            delete library[newBook.id];
         });
         formRow.appendChild(delRow);
 
         tableBody.appendChild(formRow);
+        //Add Book To Library
+        const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
+        bookId =+ 1;
+        library.push(newBook);
     };
 });
