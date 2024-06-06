@@ -3,7 +3,7 @@ let library = [];
 let readValue = false;
 // readValue allows the checkbox to update each stored book object's .read property (true/false)
 let bookId = 0;
-// bookId is a property that more easily allows me to track and delete specific book instances without array index causing issues.
+// bookId is a numeric ID object attribute that allows easy targeting and deleting of individual book entries
 
 function Book(title, author, pages, read, id) {
     this.title = title;
@@ -11,9 +11,6 @@ function Book(title, author, pages, read, id) {
     this.pages = pages;
     this.read = readValue;
     this.id = bookId;
-    this.check = function () {
-        console.table(this.title, this.author, this.pages, this.read);
-    }
 };
 // Object constructor for user inputted book entries
 
@@ -21,6 +18,8 @@ const container = document.querySelector('.container');
 
 const newBookBtn = document.querySelector('.add-btn');
 newBookBtn.addEventListener('click', () => {
+    formSubmitBtn.removeAttribute('formnovalidate');
+    // Toggles off formnovalidate on form submit button to use required input field functionality
     const newBookForm = document.querySelector('.add-book-form');
     newBookForm.showModal();
 });
@@ -46,6 +45,8 @@ const formSubmitBtn = document.querySelector('.form-submit');
 // Below code handles user inputted books and changes book object values stored in library array
 formSubmitBtn.addEventListener('click', () => {
     if ((document.getElementById('add-title').value !== '' && document.getElementById('add-author').value !== '') && document.getElementById('add-pages').value !== '') {
+        formSubmitBtn.setAttribute('formnovalidate', '');
+        // Toggles on formnovalidate attribute to form submit button so it deletes all input areas and closes window when submit button is clicked
         const tableBody = document.querySelector('.table-body');
         const formRow = document.createElement('tr');
 
@@ -97,7 +98,6 @@ formSubmitBtn.addEventListener('click', () => {
         const newBook = new Book(document.getElementById('add-title').value, document.getElementById('add-author').value, document.getElementById('add-pages').value, bookId);
         bookId++;
         library.push(newBook);
-        newBook.check()
     }
     // Clears form input areas for next input before form closes
     document.getElementById('add-title').value = '';
@@ -159,5 +159,4 @@ sampleBtn.addEventListener('click', () => {
     const newBook = new Book('Pet Semetary', 'Stephen King', 395, bookId);
     bookId++;
     library.push(newBook);
-    newBook.check()
 });
